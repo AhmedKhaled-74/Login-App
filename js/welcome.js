@@ -38,6 +38,8 @@ if (!isMobile) {
     shape.style.top = shapeY + "px";
     shape.style.left = shapeX + "px";
   });
+} else {
+  shape.classList.add("d-none");
 }
 btnOut.addEventListener("mouseenter", () => {
   shape.classList.add("zigzag");
