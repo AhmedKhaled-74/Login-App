@@ -2,6 +2,7 @@
   background-color: #444;
   color: white;
 }
+
 p {
   margin-bottom: 0 !important;
 }
@@ -9,6 +10,11 @@ p {
   --gradient-clr-1: #334b5a;
   --gradient-clr-2: #5393ae;
   --gradient-clr-3: #321d2f;
+  cursor: none;
+}
+a,
+button {
+  cursor: none !important;
 }
 body {
   position: relative;
