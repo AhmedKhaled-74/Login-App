@@ -134,6 +134,7 @@ if (!isMobile) {
   });
 } else {
   shape.classList.add("d-none");
+  footer.classList.remove("fixed-bottom");
 }
 signupBtn.addEventListener("mouseenter", () => {
   shape.classList.add("zigzag");
