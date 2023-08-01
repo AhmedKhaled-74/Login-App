@@ -58,24 +58,36 @@ function notValid() {
 var shape = document.getElementById("mouseTracker");
 var container = document.getElementById("warrper");
 
-container.addEventListener("mousemove", function (event) {
-  var containerRect = container.getBoundingClientRect();
-  var shapeRect = shape.getBoundingClientRect();
+// Detect if the device is a mobile device
+var isMobile =
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
 
-  var containerCenterX = containerRect.left + containerRect.width / 2;
-  var containerCenterY = containerRect.top + containerRect.height / 2;
+// Add the event listener if the device is not a mobile device
+if (!isMobile) {
+  container.addEventListener("mousemove", function (event) {
+    var containerRect = container.getBoundingClientRect();
+    var shapeRect = shape.getBoundingClientRect();
 
-  var mouseX = event.clientX;
-  var mouseY = event.clientY;
+    var containerCenterX = containerRect.left + containerRect.width / 2;
+    var containerCenterY = containerRect.top + containerRect.height / 2;
 
-  var shapeX =
-    mouseX - containerCenterX + containerRect.width / 2 - shapeRect.width / 2;
-  var shapeY =
-    mouseY - containerCenterY + containerRect.height / 2 - shapeRect.height / 2;
+    var mouseX = event.clientX;
+    var mouseY = event.clientY;
 
-  shape.style.top = shapeY + "px";
-  shape.style.left = shapeX + "px";
-});
+    var shapeX =
+      mouseX - containerCenterX + containerRect.width / 2 - shapeRect.width / 2;
+    var shapeY =
+      mouseY -
+      containerCenterY +
+      containerRect.height / 2 -
+      shapeRect.height / 2;
+
+    shape.style.top = shapeY + "px";
+    shape.style.left = shapeX + "px";
+  });
+}
 loginBtn.addEventListener("mouseenter", () => {
   shape.classList.add("zigzag");
 });
